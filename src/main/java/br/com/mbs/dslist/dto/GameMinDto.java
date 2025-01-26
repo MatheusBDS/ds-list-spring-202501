@@ -1,6 +1,7 @@
 package br.com.mbs.dslist.dto;
 
 import br.com.mbs.dslist.entities.Game;
+import br.com.mbs.dslist.projections.GameMinProjection;
 
 public class GameMinDto {
 
@@ -19,6 +20,14 @@ public class GameMinDto {
         this.year = game.getYear();
         this.imgUrl = game.getImgUrl();
         this.shortDescription = game.getShortDescription();
+    }
+
+    public GameMinDto(GameMinProjection gameMinProjection) {
+        this.id = gameMinProjection.getId();
+        this.title = gameMinProjection.getTitle();
+        this.year = gameMinProjection.getYear();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.shortDescription = gameMinProjection.getShortDescription();
     }
 
     public Long getId() {

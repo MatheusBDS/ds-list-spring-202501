@@ -23,7 +23,12 @@ public class GameService {
     }
 
     @Transactional(readOnly = true)
-    public GameDto findById(Long id){
+    public GameDto findById(Long id) {
         return new GameDto(gameRepository.findById(id).get());
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDto> findByList(Long listId) {
+        return gameRepository.searchGameList(listId).stream().map(GameMinDto::new).toList();
     }
 }
